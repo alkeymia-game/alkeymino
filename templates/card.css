@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ============================================================
+   DESIGN TOKENS — change these to re-skin every card globally.
+   ============================================================ */
+:root {
+  /* Card geometry */
+  --card-width: 750px;
+  --card-height: 1050px;
+  --card-radius: 32px;
+  --card-padding: 22px;
+  --card-border-width: 12px;
+
+  /* Palette (overridden per rarity / element below) */
+  --color-bg: #1a1410;
+  --color-frame: #2a1f17;
+  --color-accent: #c9a96e;
+  --color-text: #f4ead5;
+  --color-text-muted: #b8a890;
+  --color-text-box-bg: rgba(244, 234, 213, 0.94);
+  --color-text-box-fg: #1a1410;
+
+  /* Typography */
+  --font-display: "Cinzel", "Trajan Pro", serif;
+  --font-body: "EB Garamond", "Georgia", serif;
+  --font-size-name: 30px;
+  --font-size-effect: 18px;
+  --font-size-flavor: 16px;
+  --font-size-stats: 36px;
+}
+
+/* ============================================================
+   RESET — keep the screenshot crisp and predictable.
+   ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: transparent; }
+
+/* ============================================================
+   CARD LAYOUT
+   ============================================================ */
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: var(--card-padding);
+  border-radius: var(--card-radius);
+  border: var(--card-border-width) solid var(--color-frame);
+  background: var(--color-bg);
+  box-shadow: inset 0 0 0 2px var(--color-accent);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  display: grid;
+  grid-template-rows: auto 1fr auto auto auto;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header: cost · name · element */
+.card__header {
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  align-items: center;
+  gap: 12px;
+}
+
+.card__cost {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--color-accent) 70%);
+  color: #1a1410;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.card__name {
+  font-family: var(--font-display);
+  font-size: var(--font-size-name);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  line-height: 1.1;
+}
+
+.card__element {
+  width: 48px;
+  height: 48px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: var(--color-frame);
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Art frame */
+.card__art {
+  position: relative;
+  border: 2px solid var(--color-accent);
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2a1f17, #0a0604);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__art-placeholder {
+  color: var(--color-text-muted);
+  font-style: italic;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* Type line */
+.card__type-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 14px;
+  background: var(--color-frame);
+  border-top: 1px solid var(--color-accent);
+  border-bottom: 1px solid var(--color-accent);
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 16px;
+}
+.card__type { font-weight: 700; }
+.card__subtypes { color: var(--color-text-muted); }
+
+/* Text box: effect + flavor */
+.card__text {
+  background: var(--color-text-box-bg);
+  color: var(--color-text-box-fg);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  padding: 14px 18px;
+  min-height: 150px;
+  font-size: var(--font-size-effect);
+  line-height: 1.4;
+}
+
+.card__effect {
+  white-space: pre-line;
+}
+
+.card__flavor {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.25);
+  font-style: italic;
+  font-size: var(--font-size-flavor);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Footer: meta + stats */
+.card__footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.card__stats {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: 2px solid var(--color-accent);
+  background: var(--color-frame);
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: var(--font-size-stats);
+  font-weight: 700;
+}
+.card__sep { margin: 0 6px; opacity: 0.5; }
+
+/* ============================================================
+   RARITY THEMES
+   ============================================================ */
+.rarity-common    { --color-accent: #b8a890; }
+.rarity-uncommon  { --color-accent: #9bd0c0; }
+.rarity-rare      { --color-accent: #d4af37; }
+.rarity-epic      { --color-accent: #a96bff; }
+.rarity-legendary {
+  --color-accent: #ff8c42;
+  --color-frame:  #3a1f0e;
+}
+
+/* ============================================================
+   ELEMENT THEMES — tint accents per element.
+   ============================================================ */
+.element-fire   { --color-accent: #ff5a3c; }
+.element-water  { --color-accent: #4ab8ff; }
+.element-earth  { --color-accent: #8ab84a; }
+.element-air    { --color-accent: #d8d3c0; }
+.element-aether { --color-accent: #c89cff; }
+.element-shadow {
+  --color-accent: #7a6bff;
+  --color-bg:     #0e0a14;
+  --color-frame:  #1a1428;
+}
+
+/* Legendary takes precedence over element — declare it after to win. */
+.rarity-legendary.element-fire   { --color-accent: #ff7a2a; }
+.rarity-legendary.element-water  { --color-accent: #ffd17a; }

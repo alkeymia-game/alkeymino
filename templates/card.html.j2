@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <base href="{{ base_url }}" />
+  <title>{{ card.name }}</title>
+  <link rel="stylesheet" href="card.css" />
+</head>
+<body>
+  <article class="card
+                  rarity-{{ card.rarity|lower }}
+                  type-{{ card.type|lower|replace(' ', '-') }}
+                  {% if card.element %}element-{{ card.element|lower }}{% endif %}">
+
+    <header class="card__header">
+      <div class="card__cost" aria-label="cost">{{ card.cost }}</div>
+      <h1 class="card__name">{{ card.name }}</h1>
+      {% if card.element %}
+      <div class="card__element" aria-label="element">{{ card.element[0]|upper }}</div>
+      {% endif %}
+    </header>
+
+    <figure class="card__art">
+      {% if card.artwork %}
+      <img src="{{ card.artwork }}" alt="{{ card.name }} artwork" />
+      {% else %}
+      <div class="card__art-placeholder">artwork</div>
+      {% endif %}
+    </figure>
+
+    <div class="card__type-line">
+      <span class="card__type">{{ card.type }}</span>
+      {% if card.subtypes %}
+      <span class="card__subtypes">{{ card.subtypes|join(' · ') }}</span>
+      {% endif %}
+    </div>
+
+    <div class="card__text">
+      {% if card.effect %}
+      <p class="card__effect">{{ card.effect }}</p>
+      {% endif %}
+      {% if card.flavor %}
+      <p class="card__flavor">{{ card.flavor }}</p>
+      {% endif %}
+    </div>
+
+    <footer class="card__footer">
+      <div class="card__meta">
+        {% if card.set_code or card.card_number %}
+        <span>{{ card.set_code }}{% if card.card_number %} · {{ card.card_number }}{% endif %}</span>
+        {% endif %}
+        {% if card.artist %}
+        <span>Illus. {{ card.artist }}</span>
+        {% endif %}
+      </div>
+      {% if card.attack is not none and card.defense is not none %}
+      <div class="card__stats" aria-label="attack and defense">
+        <span class="card__attack">{{ card.attack }}</span>
+        <span class="card__sep">/</span>
+        <span class="card__defense">{{ card.defense }}</span>
+      </div>
+      {% endif %}
+    </footer>
+  </article>
+</body>
+</html>

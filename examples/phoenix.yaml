@@ -1,0 +1,16 @@
+name: Phoenix of Eternal Flame
+cost: 5
+type: Creature
+subtypes: [Phoenix, Elemental]
+element: Fire
+rarity: legendary
+attack: 4
+defense: 3
+effect: |
+  Flying.
+  When this creature is destroyed, return it to your hand at the start of your next turn.
+flavor: From its own ashes, it remembers every death.
+set_code: ALK
+card_number: 042/200
+artist: Jane Doe
+artwork: art/phoenix.jpg

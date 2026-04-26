@@ -1,0 +1,13 @@
+name: Quicksilver Distillation
+cost: 2
+type: Spell
+subtypes: [Alchemy]
+element: Water
+rarity: rare
+effect: |
+  Draw two cards.
+  If you control an Alchemist, draw one additional card.
+flavor: The first transmutation is the simplest — and the most dangerous.
+set_code: ALK
+card_number: 087/200
+artist: John Smith

@@ -1,0 +1,15 @@
+name: Shade Walker
+cost: 3
+type: Creature
+subtypes: [Wraith]
+element: Shadow
+rarity: epic
+attack: 2
+defense: 4
+effect: |
+  Stealth (cannot be blocked the turn it enters play).
+  Whenever Shade Walker deals damage, you may exile a card from an opponent's graveyard.
+flavor: It does not pass through walls — the walls simply forget where they were.
+set_code: ALK
+card_number: 121/200
+artist: M. Aurelio
