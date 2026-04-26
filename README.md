@@ -3,9 +3,9 @@
 ![Python](https://img.shields.io/badge/python-%3E%3D3.12-3776ab?logo=python&logoColor=white)
 ![uv](https://img.shields.io/badge/uv-managed-de5fe9?logo=python&logoColor=white)
 ![Playwright](https://img.shields.io/badge/rendered_by-Playwright-2ead33?logo=playwright&logoColor=white)
-![Repo size](https://img.shields.io/github/repo-size/FreshMag/alkeymino)
-![Last commit](https://img.shields.io/github/last-commit/FreshMag/alkeymino)
-![License](https://img.shields.io/github/license/FreshMag/alkeymino)
+![Repo size](https://img.shields.io/github/repo-size/alkeymia-game/alkeymino)
+![Last commit](https://img.shields.io/github/last-commit/alkeymia-game/alkeymino)
+![License](https://img.shields.io/github/license/alkeymia-game/alkeymino)
 
 Generate TCG playing-card images from a Jinja2 HTML template and YAML/JSON card data. Cards are rendered by a real headless Chromium, so the full power of CSS — gradients, custom fonts, shadows, blend modes — is available for your design.
 
